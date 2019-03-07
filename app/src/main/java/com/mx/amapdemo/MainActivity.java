@@ -1,18 +1,25 @@
 package com.mx.amapdemo;
 
-import android.app.Activity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.MapView;
+import com.mx.amapdemo.base.BaseFragment;
+import com.mx.amapdemo.base.BaseFragmentActivity;
+import com.mx.amapdemo.base.IFragmentStackManager;
+import com.mx.amapdemo.base.StackFragmentManager;
+import com.mx.amapdemo.maphome.view.HomeFragment;
 
-public class MainActivity extends Activity {
+public class MainActivity extends BaseFragmentActivity {
     MapView mMapView = null;
     //初始化地图控制器对象
     AMap aMap;
+
+    private IFragmentStackManager<BaseFragment> mStackFragmentManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        mStackFragmentManager = new StackFragmentManager(this.getSupportFragmentManager(), this);
         setContentView(R.layout.activity_main);
         //获取地图控件引用
         mMapView = (MapView) findViewById(R.id.map);
@@ -22,7 +29,14 @@ public class MainActivity extends Activity {
         if (aMap == null) {
             aMap = mMapView.getMap();
         }
+
+        goHomeFragment();
     }
+
+    private void goHomeFragment() {
+        mStackFragmentManager.go(new HomeFragment());
+    }
+
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -46,5 +60,30 @@ public class MainActivity extends Activity {
         super.onSaveInstanceState(outState);
         //在activity执行onSaveInstanceState时执行mMapView.onSaveInstanceState (outState)，保存地图当前的状态
         mMapView.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (mStackFragmentManager.top() != null) {
+            BaseFragment fragment = mStackFragmentManager.top();
+            boolean isfirst = fragment.isFirstEnter();
+            fragment.onEnter();
+            if (!isfirst) {
+                fragment.onReEnter(null);
+            }
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        if (mStackFragmentManager.top() != null) {
+            mStackFragmentManager.top().onHideBack();
+        }
+    }
+
+    public IFragmentStackManager<BaseFragment> getStackManager() {
+        return mStackFragmentManager;
     }
 }
