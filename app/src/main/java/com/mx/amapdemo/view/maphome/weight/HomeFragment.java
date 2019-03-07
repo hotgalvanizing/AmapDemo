@@ -11,6 +11,7 @@ import com.mx.amapdemo.view.maphome.presenter.HomePresenter;
 import com.mx.amapdemo.view.maphome.presenter.IHomePresenter;
 
 /**
+ * TODO 检索入口，地图图层切换，地图拾取
  */
 public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IView<HomeBean> {
 
