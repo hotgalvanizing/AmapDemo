@@ -7,9 +7,10 @@ import com.mx.amapdemo.base.BaseFragment;
 import com.mx.amapdemo.base.BaseFragmentActivity;
 import com.mx.amapdemo.base.IFragmentStackManager;
 import com.mx.amapdemo.base.StackFragmentManager;
-import com.mx.amapdemo.maphome.view.HomeFragment;
+import com.mx.amapdemo.view.maphome.weight.HomeFragment;
 
 public class MainActivity extends BaseFragmentActivity {
+
     MapView mMapView = null;
     //初始化地图控制器对象
     AMap aMap;
@@ -28,6 +29,7 @@ public class MainActivity extends BaseFragmentActivity {
 
         if (aMap == null) {
             aMap = mMapView.getMap();
+            AMapFactory.getInstance().setmAMap(aMap);
         }
 
         goHomeFragment();

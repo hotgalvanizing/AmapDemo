@@ -1,6 +1,6 @@
 package com.mx.amapdemo.base;
 
-import com.mx.amapdemo.maphome.presenter.IHomePresenter;
+import com.mx.amapdemo.view.maphome.presenter.IHomePresenter;
 
 import java.util.LinkedList;
 

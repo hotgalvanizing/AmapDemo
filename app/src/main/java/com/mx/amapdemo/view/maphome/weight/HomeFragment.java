@@ -1,11 +1,11 @@
-package com.mx.amapdemo.maphome.view;
+package com.mx.amapdemo.view.maphome.weight;
 
 import com.mx.amapdemo.R;
 import com.mx.amapdemo.base.BaseMvpFragment;
 import com.mx.amapdemo.base.IView;
-import com.mx.amapdemo.maphome.bean.HomeBean;
-import com.mx.amapdemo.maphome.presenter.HomePresenter;
-import com.mx.amapdemo.maphome.presenter.IHomePresenter;
+import com.mx.amapdemo.view.maphome.bean.HomeBean;
+import com.mx.amapdemo.view.maphome.presenter.HomePresenter;
+import com.mx.amapdemo.view.maphome.presenter.IHomePresenter;
 
 /**
  */
