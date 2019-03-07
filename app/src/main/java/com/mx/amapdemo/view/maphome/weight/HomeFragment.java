@@ -1,5 +1,8 @@
 package com.mx.amapdemo.view.maphome.weight;
 
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.View;
 import com.mx.amapdemo.R;
 import com.mx.amapdemo.base.BaseMvpFragment;
 import com.mx.amapdemo.base.IView;
@@ -19,6 +22,12 @@ public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IVi
     @Override
     protected IHomePresenter onCreatePresenter() {
         return new HomePresenter(this);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getPresenter().focusMe();
     }
 
     @Override

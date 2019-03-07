@@ -31,4 +31,9 @@ public class HomePresenter extends BasePresenter<HomeBean> implements IHomePrese
         super.onViewCreated();
 
     }
+
+    @Override
+    public void focusMe() {
+        mMapControlModel.focusMe();
+    }
 }
