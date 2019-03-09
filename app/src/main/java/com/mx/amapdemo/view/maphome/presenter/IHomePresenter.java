@@ -13,4 +13,14 @@ public interface IHomePresenter extends ILifeCycle {
      * 回自车
      */
     void backMe();
+
+    /**
+     * 放大地图
+     */
+    void zoomIn();
+
+    /**
+     * 缩小地图
+     */
+    void zoomOut();
 }

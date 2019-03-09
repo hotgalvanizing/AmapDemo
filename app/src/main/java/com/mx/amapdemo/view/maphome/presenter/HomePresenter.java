@@ -40,4 +40,14 @@ public class HomePresenter extends BasePresenter<HomeBean> implements IHomePrese
     public void backMe() {
         mMapControlModel.backMe();
     }
+
+    @Override
+    public void zoomIn() {
+        mMapControlModel.zoomIn();
+    }
+
+    @Override
+    public void zoomOut() {
+        mMapControlModel.zoomOut();
+    }
 }

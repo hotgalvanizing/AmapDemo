@@ -23,8 +23,6 @@ public class ZoomView extends LinearLayout implements View.OnClickListener {
         void onZoomOut(View view);
     }
 
-    private boolean mIsZoomInClickable = true, mIsZoomOutClickable = true;
-
     public ZoomView(Context context) {
         super(context);
         init(context, null);

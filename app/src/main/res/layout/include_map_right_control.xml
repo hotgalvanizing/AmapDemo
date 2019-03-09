@@ -36,10 +36,10 @@
                 android:layout_width="@dimen/btn_zoom_layout_width"
                 android:layout_height="@dimen/btn_zoom_layout_height"
                 android:src="@drawable/icon_currentpoi_n"
-                android:background="@drawable/map_model_btn_bg_selector"
-        />
+                android:background="@drawable/map_model_btn_bg_selector"/>
 
         <com.mx.amapdemo.view.maphome.weight.ZoomView
+                android:id="@+id/btn_zoom"
                 android:layout_below="@id/btn_location"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>

@@ -43,6 +43,7 @@ public class MapControlModel implements IMapControlModel {
 
         //控制比例尺控件是否显示
         aMap.getUiSettings().setScaleControlsEnabled(true);
+        aMap.getUiSettings().setZoomControlsEnabled(false);
 
         // 设置为true表示启动显示定位蓝点，false表示隐藏定位蓝点并不进行定位，默认是false。
         aMap.setMyLocationEnabled(true);

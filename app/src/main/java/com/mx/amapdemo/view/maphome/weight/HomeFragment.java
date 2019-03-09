@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import com.mx.amapdemo.R;
 import com.mx.amapdemo.base.BaseMvpFragment;
 import com.mx.amapdemo.base.IView;
+import com.mx.amapdemo.model.MapControlModel;
 import com.mx.amapdemo.view.maphome.bean.HomeBean;
 import com.mx.amapdemo.view.maphome.presenter.HomePresenter;
 import com.mx.amapdemo.view.maphome.presenter.IHomePresenter;
@@ -14,9 +15,10 @@ import com.mx.amapdemo.view.maphome.presenter.IHomePresenter;
 /**
  * TODO 检索入口，地图图层切换，地图拾取
  */
-public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IView<HomeBean> {
+public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IView<HomeBean>,ZoomView.IZoomListener, MapControlModel.IMapControlListener {
 
     ImageView mLocationIv;
+    ZoomView mZoomView;
 
     @Override
     protected int getLayoutId() {
@@ -43,12 +45,14 @@ public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IVi
     protected void onBindView() {
         super.onBindView();
         mLocationIv = findView(R.id.btn_location);
+        mZoomView = findView(R.id.btn_zoom);
     }
 
     @Override
     protected void onBindListener() {
         super.onBindListener();
         bindDefaultClickListener(mLocationIv);
+        mZoomView.setZoomListener(this);
     }
 
     @Override
@@ -61,5 +65,20 @@ public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IVi
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onZoomIn(View view) {
+        getPresenter().zoomIn();
+    }
+
+    @Override
+    public void onZoomOut(View view) {
+        getPresenter().zoomOut();
+    }
+
+    @Override
+    public void onZoomChanged() {
+
     }
 }
