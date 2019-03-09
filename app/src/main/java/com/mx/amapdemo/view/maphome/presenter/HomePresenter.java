@@ -1,6 +1,5 @@
 package com.mx.amapdemo.view.maphome.presenter;
 
-import com.amap.api.maps.AMap;
 import com.mx.amapdemo.base.BasePresenter;
 import com.mx.amapdemo.base.IView;
 import com.mx.amapdemo.model.IMapControlModel;
@@ -23,7 +22,7 @@ public class HomePresenter extends BasePresenter<HomeBean> implements IHomePrese
     @Override
     public void onCreate() {
         super.onCreate();
-        mMapControlModel = new MapControlModel();
+        mMapControlModel = MapControlModel.getInstance();
     }
 
     @Override
@@ -33,7 +32,12 @@ public class HomePresenter extends BasePresenter<HomeBean> implements IHomePrese
     }
 
     @Override
-    public void focusMe() {
-        mMapControlModel.focusMe();
+    public void initSetMap() {
+        mMapControlModel.initSetMap();
+    }
+
+    @Override
+    public void backMe() {
+        mMapControlModel.backMe();
     }
 }

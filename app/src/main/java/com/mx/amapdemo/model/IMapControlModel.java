@@ -2,15 +2,27 @@ package com.mx.amapdemo.model;
 
 public interface IMapControlModel {
 
-//    设置地图zoom等级
-
 //    切换地图图层
 
     /**
-     * 进入导航一次定位
+     * 初始设置地图
      */
-    void focusMe();
+    void initSetMap();
 
+    /**
+     * 返回自车位置
+     */
+    void backMe();
+
+    /**
+     * 放大地图
+     */
+    void zoomIn();
+
+    /**
+     * 缩小地图
+     */
+    void zoomOut();
 
 
 }

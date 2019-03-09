@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+            android:id="@+id/btn_zoom_in"
+            android:layout_width="@dimen/btn_zoom_layout_width"
+            android:layout_height="@dimen/btn_zoom_layout_height"
+            android:background="@drawable/slct_btn_bg_top_corner"
+            android:src="@drawable/ic_zoom_in"/>
+
+    <View
+            android:id="@+id/separator"
+            android:layout_width="@dimen/n_fu_fragment_separate_Line_width"
+            android:layout_height="@dimen/n_fu_fragment_separate_Line_height"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/divider_color"/>
+
+    <ImageView
+            android:id="@+id/btn_zoom_out"
+            android:layout_width="@dimen/btn_zoom_layout_width"
+            android:layout_height="@dimen/btn_zoom_layout_height"
+            android:background="@drawable/slct_btn_bg_bottom_corner"
+            android:src="@drawable/ic_zoom_out"/>
+
+</merge>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <!-- 右上角状态钮,地图图层切换 -->
+    <RelativeLayout
+            android:id="@+id/right_top_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true">
+
+        <ImageView
+                android:id="@+id/btn_location1"
+                android:layout_width="@dimen/btn_zoom_layout_width"
+                android:layout_height="@dimen/btn_zoom_layout_height"
+                android:paddingBottom="@dimen/size_shadow_gocar"
+                android:src="@drawable/btn_map_model"
+                android:background="@drawable/map_model_btn_bg_selector"/>
+
+
+    </RelativeLayout>
+
+    <!--右下角按钮，回自车，地图视角，zoom-->
+    <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/control_wrapper"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true">
+
+        <ImageView
+                android:id="@+id/btn_location"
+                android:layout_width="@dimen/btn_zoom_layout_width"
+                android:layout_height="@dimen/btn_zoom_layout_height"
+                android:src="@drawable/icon_currentpoi_n"
+                android:background="@drawable/map_model_btn_bg_selector"
+        />
+
+        <com.mx.amapdemo.view.maphome.weight.ZoomView
+                android:layout_below="@id/btn_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
+

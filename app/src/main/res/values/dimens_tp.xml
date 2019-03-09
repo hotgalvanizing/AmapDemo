@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <dimen name="n_fu_fragment_search_width">@dimen/tp_414</dimen>
+    <dimen name="n_fu_fragment_search_height">@dimen/tp_82</dimen>
+    <dimen name="n_fu_fragment_search_bg_padding_left">@dimen/tp_32</dimen>
+    <dimen name="n_fu_fragment_maphome_search_ic_width">@dimen/tp_25</dimen>
+    <dimen name="n_fu_fragment_maphome_search_ic_height">@dimen/tp_25</dimen>
+    <dimen name="n_common_btn_size">@dimen/tp_56</dimen>
+    <dimen name="n_fu_fragment_search_ic_margin_left">@dimen/tp_20</dimen>
+    <dimen name="n_fu_fragment_search_ic_margin_right">@dimen/tp_88</dimen>
+    <dimen name="n_common_map_textsize_search">@dimen/tp_24</dimen>
+    <dimen name="n_fu_fragment_maphome_more_ic_width">@dimen/tp_82</dimen>
+    <dimen name="n_fu_fragment_maphome_more_ic_height">@dimen/tp_82</dimen>
+    <dimen name="map_home_ctrl_common_size">@dimen/tp_77</dimen>
+    <dimen name="btn_zoom_layout_width">@dimen/map_home_ctrl_common_size</dimen>
+    <dimen name="btn_zoom_layout_height">@dimen/tp_74</dimen>
+    <dimen name="n_fu_fragment_separate_Line_width">@dimen/tp_63</dimen>
+    <dimen name="n_fu_fragment_separate_Line_height">@dimen/tp_1</dimen>
+    <dimen name="padding_fragment_without_shadow">@dimen/tp_9</dimen>
+    <dimen name="panel_margin">@dimen/tp_9</dimen>
+    <dimen name="size_shadow_gocar">@dimen/tp_12</dimen>
+
+
+
+</resources>

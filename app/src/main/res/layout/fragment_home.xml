@@ -1,13 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context=".view.maphome.weight.HomeFragment">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context=".view.maphome.weight.HomeFragment">
 
-    <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
+    <RelativeLayout
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content">
+        <include
+                layout="@layout/include_map_right_control"/>
+    </RelativeLayout>
 
-</FrameLayout>
+    <RelativeLayout
+            android:id="@+id/search_input_layout"
+            android:layout_width="@dimen/n_fu_fragment_search_width"
+            android:layout_height="@dimen/n_fu_fragment_search_height"
+            android:background="@drawable/bg_search_panel"
+            android:clickable="true">
+
+        <LinearLayout
+                android:id="@+id/n_maphome_search_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:gravity="left|center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="@dimen/n_fu_fragment_search_bg_padding_left">
+
+            <ImageView
+                    android:id="@+id/n_maphome_search_ic"
+                    android:layout_width="@dimen/n_fu_fragment_maphome_search_ic_width"
+                    android:layout_height="@dimen/n_fu_fragment_maphome_search_ic_height"
+                    android:minHeight="@dimen/n_common_btn_size"
+                    android:src="@drawable/ic_common_search"/>
+
+            <TextView
+                    android:id="@+id/n_maphome_search_hint"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginLeft="@dimen/n_fu_fragment_search_ic_margin_left"
+                    android:layout_marginRight="@dimen/n_fu_fragment_search_ic_margin_right"
+                    android:gravity="top|center_horizontal"
+                    android:text="@string/n_fufragment_search_text"
+                    android:textSize="@dimen/n_common_map_textsize_search"/>
+        </LinearLayout>
+
+        <FrameLayout
+                android:id="@+id/n_maphome_more_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true">
+
+            <ImageView
+                    android:id="@+id/n_maphome_more_ic"
+                    android:layout_width="@dimen/n_fu_fragment_maphome_more_ic_width"
+                    android:layout_height="@dimen/n_fu_fragment_maphome_more_ic_height"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/slct_btn_morefun_menu"/>
+        </FrameLayout>
+
+    </RelativeLayout>
+
+</RelativeLayout>

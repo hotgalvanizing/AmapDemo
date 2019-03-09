@@ -21,7 +21,8 @@
                 android:name="com.amap.api.v2.apikey"
                 android:value="0ecf70dabf824ad19f24b0633d16cbde" />
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"
+                  android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
