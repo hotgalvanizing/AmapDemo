@@ -1,4 +1,4 @@
-package com.mx.amapdemo.model;
+package com.mx.amapdemo.model.map;
 
 public interface IMapControlModel {
 

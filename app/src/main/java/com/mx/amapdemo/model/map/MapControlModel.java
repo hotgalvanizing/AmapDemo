@@ -1,18 +1,20 @@
-package com.mx.amapdemo.model;
+package com.mx.amapdemo.model.map;
 
 import android.view.MotionEvent;
 import com.amap.api.maps.AMap;
 import com.amap.api.maps.CameraUpdate;
 import com.amap.api.maps.CameraUpdateFactory;
+import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.MyLocationStyle;
 
 /**
- * map设置为单例的，mapcontrolmodel也可以设置为单例的
+ * map设置为单例的，mapcontrolmodel也可以设置为单例的,观察者
  */
 public class MapControlModel implements IMapControlModel {
 
     AMap aMap;
 
+    //TODO 这里持有的是listener的list
     IMapControlListener mapControlListener;
 
     MyLocationStyle myLocationStyle = new MyLocationStyle();
@@ -62,6 +64,13 @@ public class MapControlModel implements IMapControlModel {
                 aMap.setMyLocationStyle(myLocationStyle);
             }
         });
+
+        aMap.setOnMapLongClickListener(new AMap.OnMapLongClickListener() {
+            @Override
+            public void onMapLongClick(LatLng latLng) {
+                mapControlListener.onMapLongClick(latLng);
+            }
+        });
     }
 
     @Override
@@ -106,12 +115,6 @@ public class MapControlModel implements IMapControlModel {
             }
         });
 
-    }
-
-
-    public interface IMapControlListener {
-
-        void onZoomChanged();
     }
 
 }

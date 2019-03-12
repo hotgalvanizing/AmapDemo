@@ -4,10 +4,11 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
+import com.amap.api.maps.model.LatLng;
 import com.mx.amapdemo.R;
 import com.mx.amapdemo.base.BaseMvpFragment;
 import com.mx.amapdemo.base.IView;
-import com.mx.amapdemo.model.MapControlModel;
+import com.mx.amapdemo.model.map.MapControlModel;
 import com.mx.amapdemo.view.maphome.bean.HomeBean;
 import com.mx.amapdemo.view.maphome.presenter.HomePresenter;
 import com.mx.amapdemo.view.maphome.presenter.IHomePresenter;
@@ -15,7 +16,7 @@ import com.mx.amapdemo.view.maphome.presenter.IHomePresenter;
 /**
  * TODO 检索入口，地图图层切换，地图拾取
  */
-public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IView<HomeBean>,ZoomView.IZoomListener, MapControlModel.IMapControlListener {
+public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IView<HomeBean>,ZoomView.IZoomListener{
 
     ImageView mLocationIv;
     ZoomView mZoomView;
@@ -77,8 +78,4 @@ public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IVi
         getPresenter().zoomOut();
     }
 
-    @Override
-    public void onZoomChanged() {
-
-    }
 }

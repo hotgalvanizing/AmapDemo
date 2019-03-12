@@ -7,7 +7,7 @@ import com.mx.amapdemo.base.BaseFragment;
 import com.mx.amapdemo.base.BaseFragmentActivity;
 import com.mx.amapdemo.base.IFragmentStackManager;
 import com.mx.amapdemo.base.StackFragmentManager;
-import com.mx.amapdemo.model.MapControlModel;
+import com.mx.amapdemo.model.map.MapControlModel;
 import com.mx.amapdemo.view.maphome.weight.HomeFragment;
 
 public class MainActivity extends BaseFragmentActivity implements AMap.OnMapLoadedListener {
