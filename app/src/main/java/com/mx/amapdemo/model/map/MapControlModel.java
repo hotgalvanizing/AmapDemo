@@ -7,15 +7,15 @@ import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.MyLocationStyle;
 
+import java.util.ArrayList;
+import java.util.List;
 /**
  * map设置为单例的，mapcontrolmodel也可以设置为单例的,观察者
  */
 public class MapControlModel implements IMapControlModel {
 
     AMap aMap;
-
-    //TODO 这里持有的是listener的list
-    IMapControlListener mapControlListener;
+    public List<IMapControlListener> mapControlListeners = new ArrayList<>();
 
     MyLocationStyle myLocationStyle = new MyLocationStyle();
 
@@ -39,6 +39,20 @@ public class MapControlModel implements IMapControlModel {
     }
 
     @Override
+    public void registerListener(IMapControlListener listener) {
+        if (listener != null && !mapControlListeners.contains(listener)) {
+            mapControlListeners.add(listener);
+        }
+    }
+
+    @Override
+    public void unregisterListener(IMapControlListener listener) {
+        if (listener != null) {
+            mapControlListeners.remove(listener);
+        }
+    }
+
+    @Override
     public void initSetMap() {
 
         backMe();
@@ -53,7 +67,6 @@ public class MapControlModel implements IMapControlModel {
         aMap.setOnMapTouchListener(new AMap.OnMapTouchListener() {
             @Override
             public void onTouch(MotionEvent motionEvent) {
-                //TODO 对地图的触摸事件进行分解
                 //滑动地图，地图就不要跟随了
                 //地图拾取，地图也不要跟随了
 
@@ -68,7 +81,11 @@ public class MapControlModel implements IMapControlModel {
         aMap.setOnMapLongClickListener(new AMap.OnMapLongClickListener() {
             @Override
             public void onMapLongClick(LatLng latLng) {
-                mapControlListener.onMapLongClick(latLng);
+                if (mapControlListeners != null && mapControlListeners.size() != 0) {
+                    for (IMapControlListener item : mapControlListeners) {
+                        item.onMapLongClick(latLng);
+                    }
+                }
             }
         });
     }
@@ -89,7 +106,11 @@ public class MapControlModel implements IMapControlModel {
         aMap.animateCamera(zoomIn, new AMap.CancelableCallback() {
             @Override
             public void onFinish() {
-                mapControlListener.onZoomChanged();
+                if (mapControlListeners != null && mapControlListeners.size() != 0) {
+                    for (IMapControlListener item : mapControlListeners) {
+                        item.onZoomChanged();
+                    }
+                }
             }
 
             @Override
@@ -106,7 +127,12 @@ public class MapControlModel implements IMapControlModel {
         aMap.animateCamera(zoomOut, new AMap.CancelableCallback() {
             @Override
             public void onFinish() {
-                mapControlListener.onZoomChanged();
+                if (mapControlListeners != null && mapControlListeners.size() != 0) {
+                    for (IMapControlListener item : mapControlListeners) {
+                        item.onZoomChanged();
+                    }
+                }
+
             }
 
             @Override

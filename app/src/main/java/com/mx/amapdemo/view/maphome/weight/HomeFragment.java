@@ -4,22 +4,26 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
-import com.amap.api.maps.model.LatLng;
 import com.mx.amapdemo.R;
 import com.mx.amapdemo.base.BaseMvpFragment;
 import com.mx.amapdemo.base.IView;
-import com.mx.amapdemo.model.map.MapControlModel;
 import com.mx.amapdemo.view.maphome.bean.HomeBean;
 import com.mx.amapdemo.view.maphome.presenter.HomePresenter;
 import com.mx.amapdemo.view.maphome.presenter.IHomePresenter;
+import com.mx.amapdemo.view.searchresult.SearchResultHaveNoListFragment;
 
 /**
  * TODO 检索入口，地图图层切换，地图拾取
  */
-public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IView<HomeBean>,ZoomView.IZoomListener{
+public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IView<HomeBean>, ZoomView.IZoomListener {
 
     ImageView mLocationIv;
     ZoomView mZoomView;
+
+    @Override
+    public void onEnter() {
+        super.onEnter();
+    }
 
     @Override
     protected int getLayoutId() {
@@ -39,6 +43,11 @@ public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IVi
 
     @Override
     public void onRefresh(HomeBean data) {
+
+        if (data.isRegeocodeResultUpdated()){
+            SearchResultHaveNoListFragment fragment = new SearchResultHaveNoListFragment();
+            go(fragment);
+        }
 
     }
 

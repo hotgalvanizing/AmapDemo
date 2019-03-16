@@ -17,8 +17,7 @@ import com.mx.amapdemo.view.maphome.bean.HomeBean;
  * 进入homefragment 地图定位到自身位置，持续定位，并且可以拖动地图
  */
 
-public class HomePresenter extends BasePresenter<HomeBean> implements IHomePresenter, IMapControlListener, IGeoModelListener {
-
+public class HomePresenter extends BasePresenter<HomeBean> implements IHomePresenter {
 
     IMapControlModel mMapControlModel;
     IGeoModel mGeoModel;
@@ -32,13 +31,25 @@ public class HomePresenter extends BasePresenter<HomeBean> implements IHomePrese
         super.onCreate();
         mMapControlModel = MapControlModel.getInstance();
         mGeoModel = new GeoModel();
-        mGeoModel.setGeoListener(this);
     }
 
     @Override
     public void onViewCreated() {
         super.onViewCreated();
+    }
 
+    @Override
+    public void onEnter() {
+        super.onEnter();
+        mMapControlModel.registerListener(homeMapControlListener);
+        mGeoModel.setGeoListener(homeGeoModelListener);
+    }
+
+    @Override
+    public void onHideBack() {
+        super.onHideBack();
+        mMapControlModel.unregisterListener(homeMapControlListener);
+        mGeoModel.setGeoListener(null);
     }
 
     @Override
@@ -66,24 +77,35 @@ public class HomePresenter extends BasePresenter<HomeBean> implements IHomePrese
         mGeoModel.reverseGeo(latLng);
     }
 
+    /**
+     * 地图控制的监听
+     */
+    private IMapControlListener homeMapControlListener = new IMapControlListener() {
+        @Override
+        public void onZoomChanged() {
 
-    @Override
-    public void onZoomChanged() {
+        }
 
-    }
+        @Override
+        public void onMapLongClick(LatLng latLng) {
+            pickUp(latLng);
+        }
+    };
 
-    @Override
-    public void onMapLongClick(LatLng latLng) {
-        pickUp(latLng);
-    }
+    /**
+     * 逆地理监听
+     */
+    private IGeoModelListener homeGeoModelListener = new IGeoModelListener() {
+        @Override
+        public void onRegeocodeSearched(RegeocodeResult var1, int var2) {
+            getData().updateRegeocodeResult(var1);
+            refresh();
+        }
 
-    @Override
-    public void onRegeocodeSearched(RegeocodeResult var1, int var2) {
+        @Override
+        public void onGeocodeSearched(GeocodeResult var1, int var2) {
 
-    }
 
-    @Override
-    public void onGeocodeSearched(GeocodeResult var1, int var2) {
-
-    }
+        }
+    };
 }

@@ -1,8 +1,23 @@
 package com.mx.amapdemo.model.map;
 
+/**
+ * 地图控制单例类接口
+ */
 public interface IMapControlModel {
 
-//    切换地图图层
+    /**
+     * 注册的监听
+     *
+     * @param listener
+     */
+    void registerListener(IMapControlListener listener);
+
+    /**
+     * 反注册新的监听
+     *
+     * @param listener
+     */
+    void unregisterListener(IMapControlListener listener);
 
     /**
      * 初始设置地图

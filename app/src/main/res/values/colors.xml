@@ -6,5 +6,7 @@
 
     <color name="divider_color">#d8cfce</color>
     <color name="transparent">#00000000</color>
+    <!--Toast-->
+    <color name="toast_text_color">#ffffff</color>
 
 </resources>

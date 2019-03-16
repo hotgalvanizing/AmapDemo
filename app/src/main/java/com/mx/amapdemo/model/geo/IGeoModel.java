@@ -1,7 +1,6 @@
 package com.mx.amapdemo.model.geo;
 
 import com.amap.api.maps.model.LatLng;
-import com.amap.api.services.geocoder.GeocodeSearch;
 
 /**
  * 逆地理编码，不是单例的，即插即用

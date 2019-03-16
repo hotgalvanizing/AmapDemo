@@ -2,6 +2,7 @@ package com.mx.amapdemo;
 
 import android.app.Application;
 import android.content.Context;
+import com.mx.amapdemo.utils.AppResourcesUtils;
 
 public class App extends Application {
 
@@ -12,6 +13,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         mContext = getApplicationContext();
+        AppResourcesUtils.init(mContext);
     }
 
     public static Context getmContext() {

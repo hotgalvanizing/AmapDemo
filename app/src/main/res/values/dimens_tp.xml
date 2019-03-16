@@ -21,6 +21,8 @@
     <dimen name="padding_fragment_without_shadow">@dimen/tp_9</dimen>
     <dimen name="panel_margin">@dimen/tp_9</dimen>
     <dimen name="size_shadow_gocar">@dimen/tp_12</dimen>
+    <dimen name="common_search_bg_search_width">@dimen/tp_450</dimen>
+    <dimen name="common_icon_width">@dimen/tp_40</dimen>
 
 
 

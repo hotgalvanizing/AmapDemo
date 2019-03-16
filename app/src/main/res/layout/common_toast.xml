@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toast_bg"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center">
+    <com.mxnavi.txnavi.widget.DefinedTextView
+        android:paddingTop="@dimen/tp_21"
+        android:paddingLeft="@dimen/tp_30"
+        android:paddingBottom="@dimen/tp_21"
+        android:paddingRight="@dimen/tp_30"
+        android:id="@+id/message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="123"
+        android:textSize="@dimen/tp_24"
+        />
+</LinearLayout>
+
