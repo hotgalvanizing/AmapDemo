@@ -10,6 +10,7 @@ import com.mx.amapdemo.base.IView;
 import com.mx.amapdemo.view.maphome.bean.HomeBean;
 import com.mx.amapdemo.view.maphome.presenter.HomePresenter;
 import com.mx.amapdemo.view.maphome.presenter.IHomePresenter;
+import com.mx.amapdemo.view.searchresult.SearchResultFragment;
 import com.mx.amapdemo.view.searchresult.SearchResultHaveNoListFragment;
 
 /**
@@ -45,7 +46,10 @@ public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IVi
     public void onRefresh(HomeBean data) {
 
         if (data.isRegeocodeResultUpdated()){
-            SearchResultHaveNoListFragment fragment = new SearchResultHaveNoListFragment();
+
+            SearchResultFragment fragment = new SearchResultFragment.Builder()
+                    .setIsNeedList(false)
+                    .newInstance();
             go(fragment);
         }
 

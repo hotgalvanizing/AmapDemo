@@ -4,68 +4,74 @@
                 style="@style/fragment_page">
 
     <!--检索结果-->
-    <!--<RelativeLayout-->
-            <!--android:id="@+id/ll_search_result"-->
-            <!--android:layout_width="@dimen/common_search_bg_search_width"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:clickable="true"-->
-            <!--android:orientation="vertical">-->
-        <!--&lt;!&ndash;返回按钮&ndash;&gt;-->
-        <!--<ImageView-->
-                <!--android:id="@+id/iv_back"-->
-                <!--android:layout_width="@dimen/common_icon_width"-->
-                <!--android:layout_height="@dimen/common_icon_width"-->
-                <!--android:layout_centerVertical="true"-->
-                <!--android:layout_marginLeft="@dimen/tp_20"/>-->
+    <LinearLayout
+            android:id="@+id/ll_search_result"
+            android:layout_width="@dimen/common_search_bg_search_width"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:background="@drawable/bg_common_pannel">
 
-        <!--&lt;!&ndash;数据展示部分&ndash;&gt;-->
-        <!--<RelativeLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent">-->
+        <!--返回按钮-->
+        <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/common_icon_width"
+                android:layout_height="@dimen/common_icon_width"
+                android:layout_marginLeft="@dimen/tp_20"
+                android:layout_marginTop="@dimen/tp_20"
+                android:src="@drawable/common_back_selector"/>
 
-            <!--&lt;!&ndash;列表部分&ndash;&gt;-->
-            <!--<com.scwang.smartrefresh.layout.SmartRefreshLayout-->
-                    <!--android:id="@+id/smart_refresh_layout"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"-->
-                    <!--app:srlEnablePreviewInEditMode="true">-->
+        <!--数据展示部分-->
+        <RelativeLayout
+                android:id="@+id/content_layout"
+                android:layout_below="@id/iv_back"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-                <!--<com.mxnavi.txnavi.animation.DownDropAnimation-->
-                        <!--android:id="@+id/lv_header"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="match_parent"/>-->
-                <!--&lt;!&ndash;搜索结果列表&ndash;&gt;-->
-                <!--<ListView-->
-                        <!--android:id="@+id/lv_data"-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="match_parent"-->
-                        <!--android:cacheColorHint="@android:color/transparent"-->
-                        <!--android:footerDividersEnabled="false"-->
-                        <!--android:listSelector="@android:color/transparent"-->
-                        <!--android:scrollbars="none"/>-->
-                <!--<com.mxnavi.txnavi.animation.UpPullAnimation-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="match_parent"/>-->
-            <!--</com.scwang.smartrefresh.layout.SmartRefreshLayout>-->
+            <!--列表部分-->
+            <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                    android:id="@+id/smart_refresh_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srlEnablePreviewInEditMode="true">
 
-            <!--&lt;!&ndash;详情部分&ndash;&gt;-->
-            <!--<com.mxnavi.txnavi.searchresult.SearchResultDetailView-->
-                    <!--android:id="@+id/view_detail"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="match_parent"/>-->
+                <!--搜索结果列表-->
+                <ListView
+                        android:id="@+id/lv_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:cacheColorHint="@android:color/transparent"
+                        android:footerDividersEnabled="false"
+                        android:listSelector="@android:color/transparent"
+                        android:scrollbars="none"/>
 
-        <!--</RelativeLayout>-->
+            </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
-        <!--&lt;!&ndash;底部&ndash;&gt;-->
-        <!--<Button-->
-                <!--android:id="@+id/btn_searchresult_go_here"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="match_parent"-->
-                <!--android:layout_centerInParent="true"-->
-                <!--android:text="@string/search_result_gohere"-->
-                <!--android:textSize="@dimen/go_here_textsize"/>-->
+            <!--详情部分-->
+            <LinearLayout
+                    android:id="@+id/view_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+            </LinearLayout>
 
-    <!--</RelativeLayout>-->
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="我是对的"/>
+
+        </RelativeLayout>
+
+        <!--底部-->
+        <Button
+                android:layout_below="@id/content_layout"
+                android:id="@+id/btn_searchresult_go_here"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tp_100"
+                android:text="开始导航"/>
+
+    </LinearLayout>
 
     <include layout="@layout/include_map_right_control"/>
 </RelativeLayout>
