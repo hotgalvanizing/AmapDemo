@@ -70,6 +70,7 @@
                 android:id="@+id/btn_searchresult_go_here"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/tp_100"
+                android:background="@drawable/common_go_here_selector"
                 android:text="开始导航"/>
 
     </LinearLayout>

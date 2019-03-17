@@ -94,6 +94,14 @@ public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResult
         smartRefreshLayout = findView(R.id.smart_refresh_layout);
         viewDetail = findView(R.id.view_detail);
         textView = findView(R.id.text_view);
+        btnGoHere = findView(R.id.btn_searchresult_go_here);
+    }
+
+
+    @Override
+    protected void onBindListener() {
+        super.onBindListener();
+        bindDefaultClickListener(btnGoHere);
     }
 
     @Override
