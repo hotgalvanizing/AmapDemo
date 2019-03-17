@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
+import com.amap.api.services.core.LatLonPoint;
+import com.amap.api.services.geocoder.RegeocodeAddress;
 import com.mx.amapdemo.R;
 import com.mx.amapdemo.base.BaseMvpFragment;
 import com.mx.amapdemo.base.IView;
@@ -17,6 +20,10 @@ import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResultPresenter> implements IView<SearchResultBean> {
 
     boolean isNeedList;
+
+    RegeocodeAddress mRegeocodeAddress;
+
+    LatLonPoint mLatLonPoint;
 
     /**
      * 返回
@@ -42,6 +49,8 @@ public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResult
      * 详情页
      */
     protected View viewDetail;
+
+    protected TextView textView;
 
     /**
      * 传递过来的bundle
@@ -84,6 +93,7 @@ public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResult
         lvData = findView(R.id.lv_data);
         smartRefreshLayout = findView(R.id.smart_refresh_layout);
         viewDetail = findView(R.id.view_detail);
+        textView = findView(R.id.text_view);
     }
 
     @Override
@@ -98,7 +108,7 @@ public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResult
         handleBundleData();
     }
 
-    protected void handleBundleData(){
+    protected void handleBundleData() {
 
     }
 
@@ -107,6 +117,8 @@ public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResult
             return;
         }
         isNeedList = data.getBoolean(Constants.SearchResult.BUNDLE_IS_NEED_LIST);
+        mRegeocodeAddress = data.getParcelable(Constants.SearchResult.BUNDLE_KEY_REGEOCODE_ADDRESS);
+        mLatLonPoint = data.getParcelable(Constants.SearchResult.BUNDLE_KEY_LAT_LON_POINT);
     }
 
     @Override
@@ -142,37 +154,19 @@ public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResult
         }
 
         /**
-         * poi列表
-         *
          * @param
          * @return
          */
-        public SearchResultFragment.Builder setList(/*List<MXPoi> list*/) {
-//            bundle.putParcelableArrayList(BUNDLE_KEY_POI_LIST, Lists.newArrayList(list));
+        public SearchResultFragment.Builder setRegeocodeAddress(RegeocodeAddress regeocodeAddress) {
+            bundle.putParcelable(Constants.SearchResult.BUNDLE_KEY_REGEOCODE_ADDRESS, regeocodeAddress);
             return this;
         }
 
-        /**
-         * poi,表示点击的目标点
-         *
-         * @param
-         * @return
-         */
-        public SearchResultFragment.Builder setPoi(/*MXPoi mxPoi*/) {
-//            bundle.putParcelable(SearchResultConstants.BUNDLE_KEY_POI, mxPoi);
+        public SearchResultFragment.Builder setLatLonPoint(LatLonPoint latLonPoint) {
+            bundle.putParcelable(Constants.SearchResult.BUNDLE_KEY_LAT_LON_POINT, latLonPoint);
             return this;
         }
 
-        /**
-         * 是否是最后一页
-         *
-         * @param isLastPage
-         * @return
-         */
-        public SearchResultFragment.Builder setIsLastPage(boolean isLastPage) {
-//            bundle.putBoolean(SearchResultConstants.BUNDLE_RESULT_IS_LAST_PAGE, isLastPage);
-            return this;
-        }
 
         public SearchResultFragment newInstance() {
             SearchResultFragment fragment;

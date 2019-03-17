@@ -4,6 +4,10 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
+import com.amap.api.services.core.LatLonPoint;
+import com.amap.api.services.geocoder.RegeocodeAddress;
+import com.amap.api.services.geocoder.RegeocodeQuery;
+import com.amap.api.services.geocoder.RegeocodeResult;
 import com.mx.amapdemo.R;
 import com.mx.amapdemo.base.BaseMvpFragment;
 import com.mx.amapdemo.base.IView;
@@ -47,8 +51,15 @@ public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IVi
 
         if (data.isRegeocodeResultUpdated()){
 
+            RegeocodeResult regeocodeResult = data.getRegeocodeResult();
+            RegeocodeAddress regeocodeAddress = regeocodeResult.getRegeocodeAddress();
+            RegeocodeQuery regeocodeQuery = regeocodeResult.getRegeocodeQuery();
+            LatLonPoint latLonPoint = regeocodeQuery.getPoint();
+
             SearchResultFragment fragment = new SearchResultFragment.Builder()
                     .setIsNeedList(false)
+                    .setLatLonPoint(latLonPoint)
+                    .setRegeocodeAddress(regeocodeAddress)
                     .newInstance();
             go(fragment);
         }

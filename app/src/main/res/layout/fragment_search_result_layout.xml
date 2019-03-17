@@ -54,12 +54,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-            </LinearLayout>
 
-            <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:text="我是对的"/>
+                <TextView
+                        android:id="@+id/text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="haha"/>
+            </LinearLayout>
 
         </RelativeLayout>
 

@@ -12,5 +12,10 @@ public class SearchResultHaveNoListFragment extends SearchResultFragment {
         viewDetail.setVisibility(View.VISIBLE);
         smartRefreshLayout.setEnableLoadMore(false);
         smartRefreshLayout.setEnableRefresh(false);
+
+
+
+        textView.setText(mRegeocodeAddress.getBuilding() + ";"+mRegeocodeAddress.getFormatAddress());
+
     }
 }
