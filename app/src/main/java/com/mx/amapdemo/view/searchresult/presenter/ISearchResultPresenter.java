@@ -4,4 +4,8 @@ import com.mx.amapdemo.base.ILifeCycle;
 
 public interface ISearchResultPresenter extends ILifeCycle {
 
+    void getLocation();
+
+    void routePlan();
+
 }
