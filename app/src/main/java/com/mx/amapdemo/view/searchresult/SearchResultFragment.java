@@ -23,6 +23,9 @@ public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResult
 
     RegeocodeAddress mRegeocodeAddress;
 
+    /**
+     * 目的地经纬度
+     */
     LatLonPoint mLatLonPoint;
 
     /**

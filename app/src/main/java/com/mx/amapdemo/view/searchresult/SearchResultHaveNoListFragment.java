@@ -3,6 +3,7 @@ package com.mx.amapdemo.view.searchresult;
 import android.view.View;
 
 import com.amap.api.location.AMapLocation;
+import com.amap.api.services.core.LatLonPoint;
 import com.mx.amapdemo.R;
 import com.mx.amapdemo.model.location.ILocationListener;
 import com.mx.amapdemo.model.location.LocationManager;
@@ -31,7 +32,7 @@ public class SearchResultHaveNoListFragment extends SearchResultFragment {
         switch (v.getId()){
 
             case R.id.btn_searchresult_go_here:
-                getPresenter().getLocation();
+                getPresenter().getLocation(mLatLonPoint);
                 break;
         }
     }

@@ -10,6 +10,9 @@ import com.amap.api.location.AMapLocationListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 单例的位置管理类
+ */
 public class LocationManager implements ILocationManager, AMapLocationListener {
 
     //声明mlocationClient对象
@@ -30,7 +33,6 @@ public class LocationManager implements ILocationManager, AMapLocationListener {
     private LocationManager() {
 
     }
-
 
     @Override
     public void addLocationListener(ILocationListener listener) {

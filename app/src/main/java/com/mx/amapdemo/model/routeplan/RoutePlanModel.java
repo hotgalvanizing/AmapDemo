@@ -1,11 +1,17 @@
 package com.mx.amapdemo.model.routeplan;
 
+import android.util.Log;
 import com.amap.api.services.core.LatLonPoint;
 import com.amap.api.services.route.*;
 import com.mx.amapdemo.App;
 
 public class RoutePlanModel implements IRoutePlanModel {
 
+    IRoutePlanListener mRoutePlanListener;
+
+    public RoutePlanModel(IRoutePlanListener mRoutePlanListener) {
+        this.mRoutePlanListener = mRoutePlanListener;
+    }
 
     @Override
     public void routePlan(LatLonPoint start, LatLonPoint dest) {
@@ -20,22 +26,26 @@ public class RoutePlanModel implements IRoutePlanModel {
     RouteSearch.OnRouteSearchListener routePlanListener = new RouteSearch.OnRouteSearchListener() {
         @Override
         public void onBusRouteSearched(BusRouteResult busRouteResult, int i) {
-
+            Log.d("haha", "haha");
+            mRoutePlanListener.onBusRouteSearched(busRouteResult, i);
         }
 
         @Override
         public void onDriveRouteSearched(DriveRouteResult driveRouteResult, int i) {
-
+            Log.d("haha", "haha");
+            mRoutePlanListener.onDriveRouteSearched(driveRouteResult, i);
         }
 
         @Override
         public void onWalkRouteSearched(WalkRouteResult walkRouteResult, int i) {
-
+            Log.d("haha", "haha");
+            mRoutePlanListener.onWalkRouteSearched(walkRouteResult, i);
         }
 
         @Override
         public void onRideRouteSearched(RideRouteResult rideRouteResult, int i) {
-
+            Log.d("haha", "haha");
+            mRoutePlanListener.onRideRouteSearched(rideRouteResult, i);
         }
     };
 
