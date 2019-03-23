@@ -67,17 +67,20 @@ public class HomeFragment extends BaseMvpFragment<IHomePresenter> implements IVi
     }
 
     @Override
-    protected void onBindView() {
-        super.onBindView();
+    public void onBindView() {
         mLocationIv = findView(R.id.btn_location);
         mZoomView = findView(R.id.btn_zoom);
     }
 
     @Override
-    protected void onBindListener() {
-        super.onBindListener();
+    public void onBindListener() {
         bindDefaultClickListener(mLocationIv);
         mZoomView.setZoomListener(this);
+    }
+
+    @Override
+    public void onViewBindValue() {
+
     }
 
     @Override

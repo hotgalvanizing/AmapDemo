@@ -1,16 +1,19 @@
 package com.mx.amapdemo.view.searchresult.presenter;
 
+import android.content.Intent;
 import android.util.Log;
+import android.view.View;
 import com.amap.api.location.AMapLocation;
+import com.amap.api.services.core.AMapException;
 import com.amap.api.services.core.LatLonPoint;
-import com.amap.api.services.route.BusRouteResult;
-import com.amap.api.services.route.DriveRouteResult;
-import com.amap.api.services.route.RideRouteResult;
-import com.amap.api.services.route.WalkRouteResult;
+import com.amap.api.services.route.*;
+import com.mx.amapdemo.App;
 import com.mx.amapdemo.base.BasePresenter;
 import com.mx.amapdemo.base.IView;
 import com.mx.amapdemo.model.location.ILocationListener;
 import com.mx.amapdemo.model.location.LocationManager;
+import com.mx.amapdemo.model.map.MapControlModel;
+import com.mx.amapdemo.model.overlay.WalkRouteOverlay;
 import com.mx.amapdemo.model.routeplan.IRoutePlanListener;
 import com.mx.amapdemo.model.routeplan.IRoutePlanModel;
 import com.mx.amapdemo.model.routeplan.RoutePlanModel;
@@ -67,9 +70,23 @@ public class SearchResultPresenter extends BasePresenter<SearchResultBean> imple
         }
 
         @Override
-        public void onWalkRouteSearched(WalkRouteResult walkRouteResult, int i) {
-            Log.d("haha","haha");
+        public void onWalkRouteSearched(WalkRouteResult walkRouteResult, int errorCode) {
 
+            if (errorCode == AMapException.CODE_AMAP_SUCCESS) {
+                if (walkRouteResult != null && walkRouteResult.getPaths() != null) {
+                    if (walkRouteResult.getPaths().size() > 0) {
+
+                        getData().updateRegeocodeResult(walkRouteResult);
+
+                    } else if (walkRouteResult != null && walkRouteResult.getPaths() == null) {
+                        //TODO toast
+                    }
+                } else {
+                    //TODO toast
+                }
+            } else {
+                //TODO toast
+            }
             refresh();
         }
 

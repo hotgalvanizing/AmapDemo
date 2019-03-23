@@ -90,8 +90,7 @@ public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResult
     }
 
     @Override
-    protected void onBindView() {
-        super.onBindView();
+    public void onBindView() {
         ivBack = findView(R.id.iv_back);
         lvData = findView(R.id.lv_data);
         smartRefreshLayout = findView(R.id.smart_refresh_layout);
@@ -102,8 +101,7 @@ public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResult
 
 
     @Override
-    protected void onBindListener() {
-        super.onBindListener();
+    public void onBindListener() {
         bindDefaultClickListener(btnGoHere);
     }
 
@@ -114,8 +112,7 @@ public abstract class SearchResultFragment extends BaseMvpFragment<ISearchResult
     }
 
     @Override
-    protected void onViewBindValue() {
-        super.onViewBindValue();
+    public void onViewBindValue() {
         handleBundleData();
     }
 

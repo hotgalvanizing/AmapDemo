@@ -1,26 +1,19 @@
 package com.mx.amapdemo.view.searchresult;
 
 import android.view.View;
-
-import com.amap.api.location.AMapLocation;
-import com.amap.api.services.core.LatLonPoint;
 import com.mx.amapdemo.R;
-import com.mx.amapdemo.model.location.ILocationListener;
-import com.mx.amapdemo.model.location.LocationManager;
+import com.mx.amapdemo.view.multiroute.weight.MultiRouteFragment;
+import com.mx.amapdemo.view.searchresult.bean.SearchResultBean;
 
 public class SearchResultHaveNoListFragment extends SearchResultFragment {
 
     @Override
     protected void handleBundleData() {
         super.handleBundleData();
-        //TODO 获得需要的数据
         lvData.setVisibility(View.GONE);
         viewDetail.setVisibility(View.VISIBLE);
         smartRefreshLayout.setEnableLoadMore(false);
         smartRefreshLayout.setEnableRefresh(false);
-
-
-
         textView.setText(mRegeocodeAddress.getBuilding() + ";"+mRegeocodeAddress.getFormatAddress());
 
     }
@@ -35,5 +28,14 @@ public class SearchResultHaveNoListFragment extends SearchResultFragment {
                 getPresenter().getLocation(mLatLonPoint);
                 break;
         }
+    }
+
+    @Override
+    public void onRefresh(SearchResultBean data) {
+        super.onRefresh(data);
+        if (data.isWalkRouteResultUpdated()){
+            go(MultiRouteFragment.newInstance(data.getWalkRouteResult()));
+        }
+
     }
 }

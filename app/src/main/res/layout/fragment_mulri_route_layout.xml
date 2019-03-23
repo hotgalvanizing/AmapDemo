@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                style="@style/fragment_page">
+
+    <LinearLayout
+            android:id="@+id/ll_search_result"
+            android:layout_width="@dimen/common_search_bg_search_width"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:orientation="vertical"
+            android:background="@drawable/bg_common_pannel">
+
+        <!--返回按钮-->
+        <ImageView
+                android:id="@+id/iv_back"
+                android:layout_width="@dimen/common_icon_width"
+                android:layout_height="@dimen/common_icon_width"
+                android:layout_marginLeft="@dimen/tp_20"
+                android:layout_marginTop="@dimen/tp_20"
+                android:src="@drawable/common_back_selector"/>
+
+        <!--数据展示部分-->
+        <RelativeLayout
+                android:id="@+id/content_layout"
+                android:layout_below="@id/iv_back"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <TextView
+                        android:id="@+id/text_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="haha"/>
+
+        </RelativeLayout>
+
+        <!--底部-->
+        <Button
+                android:layout_below="@id/content_layout"
+                android:id="@+id/btn_searchresult_go_here"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/tp_100"
+                android:background="@drawable/common_go_here_selector"
+                android:text="开始导航"/>
+
+    </LinearLayout>
+
+    <include layout="@layout/include_map_right_control"/>
+</RelativeLayout>

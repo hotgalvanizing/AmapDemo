@@ -113,21 +113,17 @@ public abstract class BaseFragment extends BaseStateManageFragment implements  V
     /**
      * 关联控件
      */
-    protected void onBindView() {
-    }
+    public abstract void onBindView();
 
     /**
      * 关联控件的监听器事件
      */
-    protected void onBindListener() {
-    }
+    public abstract void onBindListener();
 
     /**
      * 关联控件的属性设置
      */
-    protected void onViewBindValue() {
-
-    }
+    public abstract void onViewBindValue();
 
     /**
      * 点击事件回调处理
@@ -135,6 +131,16 @@ public abstract class BaseFragment extends BaseStateManageFragment implements  V
      * @param v view
      */
     protected void processClick(View v) {
+
+    }
+
+    /**
+     * Toast
+     *
+     * @param text
+     */
+    protected void showToast(String text){
+
     }
 
     @Override
